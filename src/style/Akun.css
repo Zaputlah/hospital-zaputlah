@@ -1,0 +1,120 @@
+/* Akun.css */
+.login-menu {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+    animation: move-background 20s linear infinite alternate;
+}
+
+@keyframes move-background {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.login-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 40px 10px 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-toggle {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-link {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.zoom-in {
+    animation: zoom-in 0.3s ease-out;
+}
+
+.zoom-out {
+    animation: zoom-out 0.3s ease-out;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-out {
+    from {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+}
+
+.logo-image {
+    width: 100px;
+    height: auto;
+}
+
+
+/* Add additional styling as needed */
