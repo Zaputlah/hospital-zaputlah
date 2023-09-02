@@ -11,12 +11,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import logo from './img/logo.png';
+import Modal from 'react-bootstrap/Modal';
+import Akun from "./Akun"
+import { OverlayTrigger, Popover } from 'react-bootstrap';
+
 
 const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false); // Langkah 2
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
+    };
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     const scrollToSection = (sectionId) => {
@@ -33,7 +46,7 @@ const Header = () => {
             scroller.scrollTo(sectionId, {
                 duration: 400, // Durasi animasi untuk layar besar
                 smooth: 'easeInOutQuart',
-                offset: -70 // Offset untuk layar besar
+                offset: -60 // Offset untuk layar besar
             });
         }
 
@@ -41,6 +54,17 @@ const Header = () => {
             toggleNav();
         }
     };
+
+    const popover = (
+        <Popover id="popover-basic">
+            <Popover.Header as="h3">akses login</Popover.Header>
+            <Popover.Body>
+                Username&Password = admin
+                Username&Password = dokter
+                Username&Password = pasien
+            </Popover.Body>
+        </Popover>
+    );
 
 
     return (
@@ -50,7 +74,7 @@ const Header = () => {
                     <Navbar.Brand>
                         <Link to="https://linktree-versi-react.vercel.app/">
                             <img
-                                src={logo} alt="logo" style={{ width: '50 px', height: '50px' }} />
+                                src={logo} alt="logo" style={{ width: '50px', height: '50px' }} />
                         </Link>
                     </Navbar.Brand>
                     <div className="slogan">
@@ -58,7 +82,7 @@ const Header = () => {
                     </div>
                     <Navbar.Toggle aria-controls="navbarScroll" onClick={toggleNav} />
                     <Navbar.Collapse id="navbarScroll" className={`navigation ${isNavOpen ? 'open' : ''}`}>
-                        <Nav variant="underline" className="ms-auto mb-3 me-2" navbarScroll>
+                        <Nav variant="underline" className="ms-auto me-2" navbarScroll>
                             <Nav.Item>
                                 <Nav.Link href="#home" as="span">Beranda</Nav.Link>
                             </Nav.Item>
@@ -78,12 +102,25 @@ const Header = () => {
                                 <Nav.Link onClick={() => scrollToSection('contact')} as="span">Kontak</Nav.Link>
                             </Nav.Item>
                         </Nav>
-                        <Button variant="outline-info" as={Link} to="/Akun">
+                        <Button variant="outline-info" onClick={openModal}> {/* Langkah 3 */}
                             <FontAwesomeIcon icon={faUser} className="me-1" /> Akun
                         </Button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <Modal show={showModal} onHide={closeModal}> {/* Langkah 4 */}
+                <Modal.Header closeButton>
+                    <Modal.Title>Akun</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Akun />
+                </Modal.Body>
+                <Modal.Footer>
+                    <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                        <Button variant="success">Note</Button>
+                    </OverlayTrigger>
+                </Modal.Footer>
+            </Modal>
         </header>
     );
 };

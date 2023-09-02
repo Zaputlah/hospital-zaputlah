@@ -1,120 +1,66 @@
-/* Akun.css */
-.login-menu {
-    max-width: 400px;
-    margin: 100px auto;
+/* style/Akun.css */
+.form-login {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    /* Center the form */
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-
-    animation: move-background 20s linear infinite alternate;
-}
-
-@keyframes move-background {
-    from {
-        background-position: 0% 0%;
-    }
-
-    to {
-        background-position: 100% 100%;
-    }
-}
-
-.login-menu h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Transparent white background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    transition: all 0.3s ease;
+    /* Center the content */
 }
 
-.input-container {
-    position: relative;
+.bg-akun {
+    background: linear-gradient(to right, #73ff00, #3cffe5);
+
+}
+
+.judul {
+    transition: all 0.3s ease;
     margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    /* Pusatkan judul */
+}
+
+.icon-input,
+.password-input {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .input-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #aaa;
+    margin-right: 10px;
 }
 
 .password-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
     cursor: pointer;
-    color: #aaa;
+    margin-left: -20px;
 }
 
-.input-container input {
-    width: 100%;
-    padding: 10px 40px 10px 30px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.form-toggle {
-    margin-top: 20px;
+.login-register {
     text-align: center;
-    font-size: 0.9rem;
+    margin-top: 15px;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.form-link {
+.login-register a {
     color: #007bff;
-    font-weight: bold;
-    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
-.zoom-in {
-    animation: zoom-in 0.3s ease-out;
+.login-register a:hover {
+    text-decoration: underline;
 }
-
-.zoom-out {
-    animation: zoom-out 0.3s ease-out;
-}
-
-@keyframes zoom-in {
-    from {
-        transform: scale(1);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-}
-
-@keyframes zoom-out {
-    from {
-        transform: scale(1);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(0.9);
-        opacity: 1;
-    }
-}
-
-.logo-image {
-    width: 100px;
-    height: auto;
-}
-
-
-/* Add additional styling as needed */

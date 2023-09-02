@@ -1,0 +1,101 @@
+/* SuperAdmin.css */
+
+/* Sidebar Styling */
+.admin-sidebar {
+    width: 260px;
+    background-color: #2ecc71;
+    /* Warna latar belakang sidebar */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.admin-sidebar.closed {
+    left: -260px;
+}
+
+.sidebar-toggle {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    background-color: #27ae60;
+    /* Warna latar belakang header */
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-menu a {
+    color: #333;
+    /* Warna teks menu */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: color 0.3s;
+}
+
+.sidebar-menu a .fa-icon {
+    margin-right: 10px;
+}
+
+.sidebar-menu a:hover {
+    color: #27ae60;
+    /* Warna teks saat dihover */
+}
+
+.submenu {
+    display: none;
+    list-style: none;
+    margin-left: 20px;
+}
+
+.sidebar-menu li:hover .submenu {
+    display: block;
+}
+
+/* Profile and Logout */
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #444;
+    padding: 20px 0;
+    background-color: #27ae60;
+    /* Warna latar belakang footer */
+}
+
+.profile,
+.logout {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.profile:hover,
+.logout:hover {
+    background-color: #333;
+    /* Warna latar belakang saat dihover */
+}

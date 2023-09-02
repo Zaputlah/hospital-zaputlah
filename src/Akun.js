@@ -1,118 +1,107 @@
-// Akun.js
 import React, { useState } from 'react';
-import './style/Akun.css';
-import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+import "./style/Akun.css";
+import { FaUser, FaLock, FaEye, FaEyeSlash, FaEnvelope } from 'react-icons/fa'; // Impor ikon-ikon
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Akun = () => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [showLogin, setShowLogin] = useState(true);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [formAnimation, setFormAnimation] = useState('');
-    const [showPassword, setShowPassword] = useState(false); // State untuk menampilkan atau menyembunyikan password
+    const [showPassword, setShowPassword] = useState(false);
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
-    };
+    const handleLogin = (e) => {
+        e.preventDefault();
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const handleToggleForm = () => {
-        if (isLogin) {
-            setFormAnimation('slide-left');
+        // Lakukan validasi
+        if (username === 'admin' && password === 'admin') {
+            if (showLogin) {
+                // Redirect to the dashboard page for admin
+                window.location.href = '/dashboard/superadmin';
+            }
+        } else if (username === 'dokter' && password === 'dokter') {
+            if (showLogin) {
+                // Redirect to the superadmin page for superadmin
+                window.location.href = '/dashboard/dokter';
+            }
+        } else if (username === 'pasien' && password === 'pasien') {
+            if (showLogin) {
+                // Redirect to the superadmin page for superadmin
+                window.location.href = '/dashboard/pasien';
+            }
         } else {
-            setFormAnimation('slide-right');
+            // Menampilkan pesan error jika username dan password tidak valid
+            alert('Username or password is incorrect');
         }
-
-        setTimeout(() => {
-            setIsLogin(!isLogin);
-            setFormAnimation('');
-        }, 300);
     };
 
-    const handleTogglePassword = () => {
+    const handleRegister = (e) => {
+        e.preventDefault();
+        // Lakukan validasi dan proses registrasi
+    };
+
+    const toggleView = () => {
+        setShowLogin(!showLogin);
+    };
+
+    const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleLoginOrRegister = () => {
-        // Handle login or register logic here
-    };
-
-    const popover = (
-        <Popover id="popover-basic">
-            <Popover.Header as="h3">List akses yang bisa masuk</Popover.Header>
-            <Popover.Body>
-                Note: Menu login ini blm berfungsi
-                {/* Username & password = SuperAdmin
-                Username & password = Dokter
-                Username & password = Perawat
-                Username & password = Apoteker */}
-
-            </Popover.Body>
-        </Popover>
-    );
 
     return (
-        <div className={`login-menu ${formAnimation}`}>
-            <h2>{isLogin ? 'Login to Your Account' : 'Create an Account'}</h2>
-            <div className="input-container">
-                <FaUser className="input-icon" />
-                <input
-                    type="text"
-                    placeholder={isLogin ? 'Username' : 'Full Name'}
-                    value={username}
-                    onChange={handleUsernameChange}
-                />
-            </div>
-            {!isLogin && (
-                <div className="input-container">
+        <div className='bg-akun'>
+            <h2 className='judul'>{showLogin ? 'Login' : 'Register'}</h2>
+            <form className='form-login' onSubmit={showLogin ? handleLogin : handleRegister}>
+                <div className="icon-input">
                     <FaUser className="input-icon" />
                     <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={handleEmailChange}
+                        type="text"
+                        className="form-control"
+                        placeholder={showLogin ? 'Username' : 'Full Name'}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
-            )}
-            <div className="input-container">
-                <FaLock className="input-icon" />
-                <input
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                />
-                <span className="password-icon" onClick={handleTogglePassword}>
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-            </div>
-            <button className="login-button" onClick={handleLoginOrRegister}>
-                {isLogin ? 'Login' : 'Register'}
-            </button>
-            <p className={`form-toggle ${isLogin ? 'zoom-in' : 'zoom-out'}`}>
-                {isLogin
+                <div className="password-input">
+                    <FaLock className="input-icon" />
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    {showLogin && ( // Hanya tampilkan ikon mata jika sedang login
+                        <span className="password-icon" onClick={togglePasswordVisibility}>
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                    )}
+                </div>
+                {showLogin ? null : (
+                    <div className="icon-input">
+                        <FaEnvelope className="input-icon" />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="form-control"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                )}
+                <button type="submit">{showLogin ? 'Login' : 'Register'}</button>
+            </form>
+            <p className='login-register'>
+                {showLogin
                     ? "Don't have an account? "
                     : 'Already have an account? '}
-                <span onClick={handleToggleForm} className="form-link">
-                    {isLogin ? 'Register here' : 'Login here'}
-                </span>
+                <a href="#" onClick={toggleView}>
+                    {showLogin ? 'Register' : 'Login'}
+                </a>
             </p>
-            <div>
-                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-                    <Button variant="success">List akses masuk</Button>
-                </OverlayTrigger>
-            </div>
         </div>
     );
 };
