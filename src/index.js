@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'; // Make sure to import BrowserRouter
+import { BrowserRouter } from 'react-router-dom';
 
-import App from './App'; // Your main App component
+import App from './App';
+import './index.css';
 
 ReactDOM.render(
   <BrowserRouter>
