@@ -1,3 +1,14 @@
+:root {
+    --ink: #17332d;
+    --muted: #63736f;
+    --primary: #0f766e;
+    --primary-dark: #0b5b55;
+    --mint: #e9f5f1;
+    --line: #dce8e4;
+    --cream: #f8faf8;
+    --white: #ffffff;
+}
+
 .site-shell {
     min-height: 100vh;
     overflow-x: clip;
@@ -267,13 +278,14 @@
 
 .button-primary {
     color: #fff;
-    background: var(--primary);
-    border-color: var(--primary);
+    background: var(--primary, #0f766e);
+    border-color: var(--primary, #0f766e);
 }
 
 .button-primary:hover {
     color: #fff;
-    background: var(--primary-dark);
+    background: var(--primary-dark, #0b5b55);
+    border-color: var(--primary-dark, #0b5b55);
 }
 
 .button-secondary {
@@ -820,11 +832,26 @@
     width: 100%;
     height: 46px;
     padding: 0 13px;
-    color: var(--ink);
+    color: var(--ink, #17332d);
     background: #fbfcfb;
     border: 1px solid #d9e4e1;
     border-radius: 8px;
     outline: none;
+    opacity: 1;
+}
+
+.form-row input::placeholder {
+    color: #71827e;
+    opacity: 1;
+}
+
+.form-row select:invalid {
+    color: #71827e;
+}
+
+.form-row select option {
+    color: #17332d;
+    background: #fff;
 }
 
 .form-row input:focus,
