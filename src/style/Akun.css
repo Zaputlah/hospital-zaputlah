@@ -1,66 +1,98 @@
 /* style/Akun.css */
 .form-login {
-    max-width: 300px;
+    max-width: none;
     width: 100%;
     margin: 0 auto;
-    /* Center the form */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    /* Transparent white background */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: all 0.3s ease;
-    /* Center the content */
+    align-items: stretch;
 }
 
 .bg-akun {
-    background: linear-gradient(to right, #73ff00, #3cffe5);
-
+    background: #fff;
 }
 
 .judul {
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 24px;
-    text-transform: uppercase;
-    text-align: center;
-    /* Pusatkan judul */
+    margin: 0 0 22px;
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    text-align: left;
 }
 
 .icon-input,
 .password-input {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+    position: relative;
     display: flex;
     align-items: center;
 }
 
 .input-icon {
-    margin-right: 10px;
+    position: absolute;
+    left: 13px;
+    z-index: 1;
+    color: #77908a;
 }
 
 .password-icon {
+    position: absolute;
+    right: 13px;
+    color: #77908a;
     cursor: pointer;
-    margin-left: -20px;
+}
+
+.form-login .form-control {
+    height: 48px;
+    padding-left: 40px;
+    border-color: var(--line);
+    border-radius: 8px;
+}
+
+.form-login .password-input .form-control {
+    padding-right: 42px;
+}
+
+.form-login .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.form-login > button {
+    min-height: 48px;
+    color: #fff;
+    background: var(--primary);
+    border: 0;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.form-login > button:hover {
+    background: var(--primary-dark);
 }
 
 .login-register {
     text-align: center;
-    margin-top: 15px;
-    transition: opacity 0.3s ease-in-out;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 0.86rem;
 }
 
-.login-register a {
-    color: #007bff;
+.login-register button {
+    padding: 0;
+    color: var(--primary);
+    background: transparent;
+    border: 0;
+    font-weight: 700;
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
 }
 
-.login-register a:hover {
+.login-register button:hover {
+    color: var(--primary-dark);
+    background: transparent;
     text-decoration: underline;
 }

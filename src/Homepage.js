@@ -7,18 +7,20 @@ import Appointments from './Appointments';
 import NewsEvents from './NewsEvents';
 import Contact from './Contact';
 import Footer from './Footer';
-import Akun from './Akun';
+import './style/landing.css';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="site-shell">
       <Header />
-      <HeroSection />
-      <AboutUs />
-      <Services />
-      <Appointments />
-      <NewsEvents />
-      <Contact />
+      <main>
+        <HeroSection />
+        <AboutUs />
+        <Services />
+        <Appointments />
+        <NewsEvents />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

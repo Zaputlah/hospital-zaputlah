@@ -96,11 +96,11 @@ const Akun = () => {
             </form>
             <p className='login-register'>
                 {showLogin
-                    ? "Don't have an account? "
-                    : 'Already have an account? '}
-                <a href="#" onClick={toggleView}>
-                    {showLogin ? 'Register' : 'Login'}
-                </a>
+                    ? 'Belum punya akun? '
+                    : 'Sudah punya akun? '}
+                <button type="button" onClick={toggleView}>
+                    {showLogin ? 'Daftar' : 'Masuk'}
+                </button>
             </p>
         </div>
     );

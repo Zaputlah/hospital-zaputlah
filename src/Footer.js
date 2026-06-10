@@ -1,41 +1,37 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faReact, faTwitter, faInstagram, faBootstrap, faCss3, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { SiFirebase } from 'react-icons/si';
-import "./style/footer.css";
+import logo from './img/logo.png';
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <div className="contact-grid">
-                <div className="contact-section">
-                    <h3>Kontak dan Lokasi</h3>
-                    <div className="contact-info">
-                        <div className="contact-item">
-                            <FontAwesomeIcon icon={faMapMarkerAlt} />
-                            <p>Jl. Contoh No. 123, Kota Contoh, Indonesia</p>
-                        </div>
-                        <div className="contact-item">
-                            <FontAwesomeIcon icon={faPhone} />
-                            <p>+62 123 4567 890</p>
-                        </div>
-                        <div className="contact-item">
-                            <FontAwesomeIcon icon={faEnvelope} />
-                            <p>info@rumahsakit.com</p>
-                        </div>
+        <footer className="site-footer">
+            <div className="site-container footer-grid">
+                <div className="footer-brand">
+                    <div className="brand brand-footer">
+                        <img src={logo} alt="" />
+                        <span><strong>Zaputlah</strong><small>Hospital</small></span>
                     </div>
+                    <p>Merawat dengan keahlian, mendampingi dengan kepedulian.</p>
                 </div>
-                <div className="operational-hours">
-                    <h3>Jam Operasional</h3>
-                    <p>Senin - Jumat: 08:00 - 17:00</p>
-                    <p>Sabtu: 08:00 - 12:00</p>
+                <div className="footer-column">
+                    <h3>Layanan</h3>
+                    <span>Poliklinik spesialis</span>
+                    <span>Rawat inap</span>
+                    <span>Laboratorium</span>
+                    <span>Instalasi gawat darurat</span>
+                </div>
+                <div className="footer-column">
+                    <h3>Kontak</h3>
+                    <span><FontAwesomeIcon icon={faPhone} /> (021) 555-0119</span>
+                    <span><FontAwesomeIcon icon={faEnvelope} /> halo@zaputlahhospital.id</span>
+                    <span><FontAwesomeIcon icon={faMapMarkerAlt} /> Jakarta, Indonesia</span>
                 </div>
             </div>
-            <div className="footer-bottom">
-                <p>&copy; 2023 Rumah Sakit zaputlah. All rights reserved.</p>
+            <div className="site-container footer-bottom">
+                <p>&copy; 2026 Zaputlah Hospital. Seluruh hak dilindungi.</p>
+                <div><span>Kebijakan privasi</span><span>Syarat layanan</span></div>
             </div>
-
         </footer>
     );
 };

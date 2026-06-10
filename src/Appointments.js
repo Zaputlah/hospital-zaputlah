@@ -1,29 +1,43 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserMd, faStethoscope, faHeartbeat } from '@fortawesome/free-solid-svg-icons';
-import "./style/appointments.css"
+import { faArrowRight, faHeartbeat, faStethoscope, faUserMd } from '@fortawesome/free-solid-svg-icons';
+
+const doctors = [
+    { icon: faUserMd, name: 'dr. Arif Rahman, Sp.PD', specialty: 'Penyakit Dalam', schedule: 'Senin - Jumat' },
+    { icon: faStethoscope, name: 'dr. Nadia Putri, Sp.B', specialty: 'Bedah Umum', schedule: 'Selasa - Sabtu' },
+    { icon: faHeartbeat, name: 'dr. Michael Wijaya, Sp.JP', specialty: 'Jantung & Pembuluh Darah', schedule: 'Senin - Kamis' }
+];
 
 const Appointments = () => {
+    const openContact = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+
     return (
-        <section className="appointments" id='appointments'>
-            <h2 className="section-title">Dokter</h2>
-            <div className="doctor-list">
-                <div className="doctor">
-                    <FontAwesomeIcon icon={faUserMd} size="3x" />
-                    <h3>Dr. John Doe</h3>
-                    <p>Spesialis Penyakit Dalam</p>
+        <section className="section doctors-section" id="appointments">
+            <div className="site-container">
+                <div className="section-heading compact">
+                    <div>
+                        <span className="eyebrow">Tim dokter</span>
+                        <h2>Temukan dokter yang sesuai.</h2>
+                    </div>
+                    <button className="text-link" type="button" onClick={openContact}>
+                        Lihat jadwal lengkap <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
                 </div>
-                <div className="doctor">
-                    <FontAwesomeIcon icon={faStethoscope} size="3x" />
-                    <h3>Dr. Jane Smith</h3>
-                    <p>Spesialis Bedah</p>
+                <div className="doctor-grid">
+                    {doctors.map((doctor) => (
+                        <article className="doctor-card" key={doctor.name}>
+                            <div className="doctor-avatar"><FontAwesomeIcon icon={doctor.icon} /></div>
+                            <div className="doctor-info">
+                                <span>{doctor.specialty}</span>
+                                <h3>{doctor.name}</h3>
+                                <p>Praktik {doctor.schedule}</p>
+                            </div>
+                            <button type="button" aria-label={`Buat janji dengan ${doctor.name}`} onClick={openContact}>
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </button>
+                        </article>
+                    ))}
                 </div>
-                <div className="doctor">
-                    <FontAwesomeIcon icon={faHeartbeat} size="3x" />
-                    <h3>Dr. Michael Johnson</h3>
-                    <p>Spesialis Jantung</p>
-                </div>
-                {/* Tambahkan dokter lainnya sesuai kebutuhan */}
             </div>
         </section>
     );
